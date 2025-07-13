@@ -1,0 +1,443 @@
+@import url('https://fonts.googleapis.com/css2?family=Terminal+Dosis:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Terminal Dosis', 'Courier New', monospace;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+body {
+    background: #004040;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.winamp-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 1000px;
+}
+
+/* Common Window Styles */
+.main-player, .equalizer, .playlist {
+    background: linear-gradient(45deg, #525252 0%, #3a3a3a 50%, #2a2a2a 100%);
+    border: 2px outset #666;
+    border-radius: 0;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-size: 11px;
+}
+
+.title-bar {
+    background: linear-gradient(to bottom, #c0c0c0 0%, #808080 100%);
+    border-bottom: 1px solid #404040;
+    padding: 2px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 14px;
+}
+
+.winamp-logo {
+    color: #000;
+    font-weight: bold;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 1px;
+}
+
+.window-controls button {
+    width: 12px;
+    height: 10px;
+    border: 1px outset #c0c0c0;
+    background: #c0c0c0;
+    font-size: 8px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.window-controls button:active {
+    border: 1px inset #c0c0c0;
+}
+
+/* Main Player Styles */
+.main-player {
+    width: 275px;
+    height: 116px;
+    position: relative;
+}
+
+.display-area {
+    padding: 4px;
+    display: flex;
+    gap: 4px;
+}
+
+.visualizer {
+    width: 152px;
+    height: 32px;
+    background: #000;
+    border: 1px inset #666;
+    position: relative;
+}
+
+#visualizer {
+    width: 100%;
+    height: 100%;
+}
+
+.track-info {
+    flex: 1;
+    background: #000;
+    border: 1px inset #666;
+    padding: 2px;
+    color: #00ff00;
+    font-size: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.track-name {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.audio-info {
+    display: flex;
+    gap: 4px;
+    font-size: 8px;
+    color: #00ff00;
+}
+
+.time-display {
+    position: absolute;
+    top: 26px;
+    right: 8px;
+    background: #000;
+    color: #00ff00;
+    padding: 2px 4px;
+    border: 1px inset #666;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    font-weight: bold;
+    width: 60px;
+    text-align: center;
+}
+
+.controls {
+    position: absolute;
+    bottom: 38px;
+    left: 8px;
+    right: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.control-btn {
+    width: 22px;
+    height: 18px;
+    border: 1px outset #999;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    cursor: pointer;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:active {
+    border: 1px inset #999;
+    background: linear-gradient(to bottom, #c0c0c0, #e0e0e0);
+}
+
+.extra-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.shuffle, .repeat {
+    padding: 2px 4px;
+    border: 1px outset #999;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    cursor: pointer;
+    font-size: 8px;
+    color: #000;
+}
+
+.shuffle:active, .repeat:active {
+    border: 1px inset #999;
+}
+
+.sliders {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    display: flex;
+    gap: 8px;
+}
+
+.volume-slider, .balance-slider {
+    flex: 1;
+    height: 12px;
+}
+
+.slider {
+    width: 100%;
+    height: 12px;
+    background: #404040;
+    border: 1px inset #666;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(to bottom, #ffa500, #ff8000);
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+/* Equalizer Styles */
+.equalizer {
+    width: 275px;
+    height: 116px;
+    margin-top: 5px;
+}
+
+.eq-controls {
+    padding: 4px;
+    display: flex;
+    gap: 4px;
+}
+
+.eq-btn {
+    padding: 2px 6px;
+    border: 1px outset #999;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    cursor: pointer;
+    font-size: 8px;
+    color: #000;
+}
+
+.eq-btn.active {
+    border: 1px inset #999;
+    background: linear-gradient(to bottom, #c0c0c0, #a0a0a0);
+}
+
+.eq-graph {
+    height: 20px;
+    margin: 0 4px;
+    background: #000;
+    border: 1px inset #666;
+}
+
+.eq-sliders {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+    gap: 2px;
+}
+
+.eq-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20px;
+}
+
+.slider-container {
+    height: 50px;
+    width: 20px;
+    position: relative;
+}
+
+.eq-range {
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 20px;
+    height: 50px;
+    background: #404040;
+    border: 1px inset #666;
+    outline: none;
+}
+
+.eq-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 8px;
+    background: linear-gradient(to bottom, #ffff00, #ffa500);
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.freq-label {
+    font-size: 8px;
+    color: #c0c0c0;
+    margin-top: 2px;
+    text-align: center;
+}
+
+/* Playlist Styles */
+.playlist {
+    width: 275px;
+    height: 200px;
+    margin-top: 5px;
+}
+
+.playlist-content {
+    height: 120px;
+    background: #000;
+    margin: 4px;
+    border: 1px inset #666;
+    overflow-y: auto;
+}
+
+.track-list {
+    color: #00ff00;
+    font-size: 9px;
+    padding: 2px;
+}
+
+.track-item {
+    display: flex;
+    padding: 1px 2px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.track-item.current {
+    background: #000080;
+    color: #fff;
+}
+
+.track-item:hover {
+    background: #004080;
+}
+
+.track-num {
+    width: 20px;
+    color: #808080;
+}
+
+.track-artist {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.track-duration {
+    color: #808080;
+    margin-left: auto;
+}
+
+.playlist-controls {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    align-items: center;
+    background: #404040;
+    border-top: 1px solid #666;
+}
+
+.playlist-btn {
+    padding: 2px 4px;
+    border: 1px outset #999;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    cursor: pointer;
+    font-size: 8px;
+    color: #000;
+}
+
+.playlist-btn:active {
+    border: 1px inset #999;
+}
+
+.playlist-time {
+    background: #000;
+    color: #00ff00;
+    padding: 2px 4px;
+    border: 1px inset #666;
+    font-family: 'Courier New', monospace;
+    font-size: 8px;
+    margin: 0 4px;
+}
+
+.playlist-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+    background: #404040;
+    border-top: 1px solid #666;
+}
+
+.playlist-controls-bottom {
+    display: flex;
+    gap: 1px;
+}
+
+.small-btn {
+    width: 16px;
+    height: 12px;
+    border: 1px outset #999;
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    cursor: pointer;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.small-btn:active {
+    border: 1px inset #999;
+}
+
+.playlist-time-display {
+    background: #000;
+    color: #00ff00;
+    padding: 2px 4px;
+    border: 1px inset #666;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .winamp-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .main-player, .equalizer, .playlist {
+        margin: 2px 0;
+    }
+}
+
+/* Animation for visualizer */
+@keyframes visualizer-bars {
+    0% { height: 2px; }
+    50% { height: 16px; }
+    100% { height: 2px; }
+}
+
+.visualizer-bar {
+    background: #00ff00;
+    animation: visualizer-bars 0.5s infinite alternate;
+}

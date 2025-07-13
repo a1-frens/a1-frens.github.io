@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WinAmp Recreation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="winamp-container">
+        <!-- Main Player Window -->
+        <div class="main-player">
+            <div class="title-bar">
+                <div class="winamp-logo">WINAMP</div>
+                <div class="window-controls">
+                    <button class="minimize">_</button>
+                    <button class="close">×</button>
+                </div>
+            </div>
+            
+            <div class="display-area">
+                <div class="visualizer">
+                    <canvas id="visualizer" width="152" height="32"></canvas>
+                </div>
+                <div class="track-info">
+                    <div class="track-number">8.</div>
+                    <div class="track-name">SLEAZE - GOD DAMN</div>
+                    <div class="track-time">&lt;3:46&gt;</div>
+                </div>
+                <div class="audio-info">
+                    <div class="bitrate">192 kbps</div>
+                    <div class="frequency">44 kHz</div>
+                    <div class="mode">mono</div>
+                    <div class="status">stereo</div>
+                </div>
+            </div>
+            
+            <div class="time-display">00:23</div>
+            
+            <div class="controls">
+                <div class="main-controls">
+                    <button class="control-btn prev">⏮</button>
+                    <button class="control-btn play">▶</button>
+                    <button class="control-btn pause">⏸</button>
+                    <button class="control-btn stop">⏹</button>
+                    <button class="control-btn next">⏭</button>
+                    <button class="control-btn eject">⏏</button>
+                </div>
+                <div class="extra-controls">
+                    <button class="shuffle">SHUFFLE</button>
+                    <button class="repeat">REPEAT</button>
+                </div>
+            </div>
+            
+            <div class="sliders">
+                <div class="volume-slider">
+                    <input type="range" class="slider" min="0" max="100" value="75">
+                </div>
+                <div class="balance-slider">
+                    <input type="range" class="slider" min="-100" max="100" value="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- Equalizer Window -->
+        <div class="equalizer">
+            <div class="title-bar">
+                <div class="winamp-logo">WINAMP EQUALIZER</div>
+                <div class="window-controls">
+                    <button class="minimize">_</button>
+                    <button class="close">×</button>
+                </div>
+            </div>
+            
+            <div class="eq-controls">
+                <button class="eq-btn on active">ON</button>
+                <button class="eq-btn auto">AUTO</button>
+                <button class="eq-btn presets">PRESETS</button>
+            </div>
+            
+            <div class="eq-graph">
+                <canvas id="eq-graph" width="250" height="60"></canvas>
+            </div>
+            
+            <div class="eq-sliders">
+                <div class="eq-slider">
+                    <div class="slider-container">
+                        <input type="range" class="eq-range" min="-12" max="12" value="12" orient="vertical">
+                    </div>
+                    <div class="freq-label">PREAMP</div>
+                </div>
+                <div class="eq-slider">
+                    <div class="slider-container">
+                        <input type="range" class="eq-range" min="-12" max="12" value="0" orient="vertical">
+                    </div>
+                    <div class="freq-label">60</div>
+                </div>
+                <div class="eq-slider">
+                    <div class="slider-container">
+                        <input type="range" class="eq-range" min="-12" max="12" value="0" orient="vertical">
+                    </div>
+                    <div class="freq-label">170</div>
+                </div>
+                <div class="eq-slider">
+                    <div class="slider-container">
+                        <input type="range" class="eq-range" min="-12" max="12" value="0" orient="vertical">
+                    </div>
+                    <div class="freq-label">310</div>
+                </div>
+                <div class="eq-slider">
+                    <div class="slider-container">
+                        <input type="range" class="eq-range" min="-12" max="12" value="0" orient="vertical">
+                    </div>
+                    <div class="freq-label">600</div>
+                </div>
+                <div class="eq-slider">
+                    <div class="slider-container">
+                        <input type="range" class="eq-range" min="-12" max="12" value="0" orient="vertical">
+                    </div>
+                    <div class="freq-label">1K</div>
+                </div>
+                <div class="eq-slider">
+                    <div class="slider-container">
+                        <input type="range" class="eq-range" min="-12" max="12" value="0" orient="vertical">
+                    </div>
+                    <div class="freq-label">3K</div>
+                </div>
+                <div class="eq-slider">
+                    <div class="slider-container">
+                        <input type="range" class="eq-range" min="-12" max="12" value="0" orient="vertical">
+                    </div>
+                    <div class="freq-label">6K</div>
+                </div>
+                <div class="eq-slider">
+                    <div class="slider-container">
+                        <input type="range" class="eq-range" min="-12" max="12" value="0" orient="vertical">
+                    </div>
+                    <div class="freq-label">12K</div>
+                </div>
+                <div class="eq-slider">
+                    <div class="slider-container">
+                        <input type="range" class="eq-range" min="-12" max="12" value="0" orient="vertical">
+                    </div>
+                    <div class="freq-label">14K</div>
+                </div>
+                <div class="eq-slider">
+                    <div class="slider-container">
+                        <input type="range" class="eq-range" min="-12" max="12" value="12" orient="vertical">
+                    </div>
+                    <div class="freq-label">16K</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Playlist Window -->
+        <div class="playlist">
+            <div class="title-bar">
+                <div class="winamp-logo">WINAMP PLAYLIST</div>
+                <div class="window-controls">
+                    <button class="minimize">_</button>
+                    <button class="close">×</button>
+                </div>
+            </div>
+            
+            <div class="playlist-content">
+                <div class="track-list">
+                    <div class="track-item">
+                        <span class="track-num">7.</span>
+                        <span class="track-artist">Juanitos - Hola Hola Bossa Nova</span>
+                        <span class="track-duration">3:27</span>
+                    </div>
+                    <div class="track-item current">
+                        <span class="track-num">8.</span>
+                        <span class="track-artist">Sleaze - God Damn</span>
+                        <span class="track-duration">3:46</span>
+                    </div>
+                    <div class="track-item">
+                        <span class="track-num">9.</span>
+                        <span class="track-artist">Entertainment for the Braindead - Resolution...</span>
+                        <span class="track-duration">5:14</span>
+                    </div>
+                    <div class="track-item">
+                        <span class="track-num">10.</span>
+                        <span class="track-artist">Nobara Hayakawa - Trail</span>
+                        <span class="track-duration">3:24</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="playlist-controls">
+                <button class="playlist-btn">ADD</button>
+                <button class="playlist-btn">REM</button>
+                <button class="playlist-btn">SEL</button>
+                <button class="playlist-btn">MISC</button>
+                <div class="playlist-time">3:46.43-3:46</div>
+                <button class="playlist-btn">LIST OPTS</button>
+            </div>
+            
+            <div class="playlist-footer">
+                <div class="playlist-controls-bottom">
+                    <button class="small-btn">⏮</button>
+                    <button class="small-btn">▶</button>
+                    <button class="small-btn">⏸</button>
+                    <button class="small-btn">⏹</button>
+                    <button class="small-btn">⏭</button>
+                    <button class="small-btn">⏏</button>
+                </div>
+                <div class="playlist-time-display">00:23</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
